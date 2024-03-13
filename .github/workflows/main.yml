@@ -15,4 +15,9 @@ jobs:
           with:
             node-version: '20.x'
         - name: Run Checks
-          run: node dist/index.js
+          run: |
+            npm i -g yarn
+            yarn global add @vercel/ncc
+            yarn install
+            yarn build
+            node dist/index.js
